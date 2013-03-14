@@ -15,6 +15,7 @@ Chef or Puppet even.
 Check this repository into your salt /srv/salt and name it "simple_stack"
 
  cd /srv/salt
+
  git clone https://github.com/simple-stack/simple-stack.git simple_stack
 
 ## Pillar data
