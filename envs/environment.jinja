@@ -7,6 +7,7 @@
     "public": "{{ interfaces_public }}"
   },
   "database": {
+    "host": "{{ database_host }}",
     "password": "{{ database_password }}"
   },
   "openstack": {
@@ -15,20 +16,17 @@
     "internal_address": "{{ openstack_internal_address }}"
   },
   "keystone": {
-    "host": "{{ keystone_host }}",
-    "db": "{{ keystone_db }}"
+    "host": "{{ keystone_host }}"
   },
   "rabbit": {
     "host": "{{ rabbit_host }}",
     "password": "{{ rabbit_password }}"
   },
   "glance": {
-    "host": "{{ glance_host }}",
-    "db": "{{ glance_db }}"
+    "host": "{{ glance_host }}"
   },
   "nova": {
     "host": "{{ nova_host }}",
-    "db": "{{ nova_db }}",
     "libvirt_type": "{{ nova_libirt_type }}",
     "network": {
       "floating": "{{ nova_networking_floating }}",
@@ -37,11 +35,7 @@
       "my_ip": "{{ nova_networking_my_ip }}"
     }
   },
-  "cinder": {
-    "db": "{{ cinder_db }}"
-  },
   "quantum": {
-    "host": "{{ quantum_host }}",
-    "ovs_db": "{{ quantum_ovs_db }}"
+    "host": "{{ quantum_host }}"
   }
 }
