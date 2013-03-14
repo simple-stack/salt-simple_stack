@@ -1,0 +1,3 @@
+base:
+  '*':
+    - simple_stack

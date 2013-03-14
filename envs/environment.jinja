@@ -1,0 +1,47 @@
+{
+  "admin-token": "{{ admin_token }}",
+  "service-password": "{{ service_password }}",
+  "admin-password": "{{ admin_password }}",
+  "interfaces": {
+    "control": "{{ interfaces_control }}",
+    "public": "{{ interfaces_public }}"
+  },
+  "database": {
+    "password": "{{ database_password }}"
+  },
+  "openstack": {
+    "public_address": "{{ openstack_public_address }}",
+    "admin_address": "{{ openstack_admin_address }}",
+    "internal_address": "{{ openstack_internal_address }}"
+  },
+  "keystone": {
+    "host": "{{ keystone_host }}",
+    "db": "{{ keystone_db }}"
+  },
+  "rabbit": {
+    "host": "{{ rabbit_host }}",
+    "password": "{{ rabbit_password }}"
+  },
+  "glance": {
+    "host": "{{ glance_host }}",
+    "db": "{{ glance_db }}"
+  },
+  "nova": {
+    "host": "{{ nova_host }}",
+    "db": "{{ nova_db }}",
+    "libvirt_type": "{{ nova_libirt_type }}",
+    "network": {
+      "floating": "{{ nova_networking_floating }}",
+      "private": "{{ nova_networking_private }}",
+      "public_interface": "{{ nova_networking_public_interface }}",
+      "my_ip": "{{ nova_networking_my_ip }}"
+    }
+  },
+  "cinder": {
+    "db": "{{ cinder_db }}"
+  },
+  "quantum": {
+    "host": "{{ quantum_host }}",
+    "ovs_db": "{{ quantum_ovs_db }}"
+  }
+}
