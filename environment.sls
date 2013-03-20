@@ -29,9 +29,3 @@
         quantum_host: {{ pillar['simple_stack']['quantum_host'] }}
     - require:
       - git: simple_stack_clone
-
-#        quantum_ovs_db: {{ pillar['simple_stack']['quantum_ovs_db'] }}
-#        keystone_db: {{ pillar['simple_stack']['keystone_db'] }}
-#        nova_db: {{ pillar['simple_stack']['nova_db'] }}
-#        cinder_db: {{ pillar['simple_stack']['cinder_db'] }}
-#        glance_db: {{ pillar['simple_stack']['glance_db'] }}

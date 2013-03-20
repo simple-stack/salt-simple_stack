@@ -9,7 +9,6 @@ simple_stack_clone:
     - order: 1
     - name: https://github.com/simple-stack/simple-stack.git
     - target: /srv/simple-stack
-    - rev: master
     - runas: root
     - submodules: true
 
