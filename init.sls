@@ -7,7 +7,8 @@ stack_needed_pkgs:
 simple_stack_clone:
   git.latest:
     - order: 1
-    - name: https://github.com/simple-stack/simple-stack.git
+    - name: {{ pillar['git_simple_stack']['url'] }}
+    - rev: {{ pillar['git_simple_stack']['rev'] }}
     - target: /srv/simple-stack
     - runas: root
     - submodules: true
