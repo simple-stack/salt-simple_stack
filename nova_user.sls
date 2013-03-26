@@ -32,3 +32,14 @@ nova_ssh_fix_perm:
     - group: nova
     - require:
       - user: nova
+
+nova_ssh_config:
+  file.managed:
+    - name: /var/lib/nova/.ssh/config
+    - source: salt://simple_stack/templates/ssh_config.jinja
+    - template: jinja
+    - mode: 644
+    - user: nova
+    - group: nova
+    - require:
+      - user: nova
