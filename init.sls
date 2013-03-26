@@ -12,6 +12,7 @@ simple_stack_clone:
     - target: /srv/simple-stack
     - runas: root
     - submodules: true
+    - force: True
 
 /srv/simple-stack/install-controller-node.sh:
   file.managed:
