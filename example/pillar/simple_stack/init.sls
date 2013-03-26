@@ -3,7 +3,7 @@
 
 git_simple_stack:
   url: https://github.com/EntropyWorks/simple-stack.git
-  rev: testing
+  rev: master
 
 simple_stack:
   admin_token: yourtoken12345
@@ -29,6 +29,7 @@ simple_stack:
   nova_network_my_ip: 203.0.213.2 # Your Public IP your real server
   cinder_host: 127.0.0.1
   quantum_host: 127.0.0.1  # Currently not using quantum btw
+  nova_ssh_no_host_check: 10.8.0.* , compute*
   nova_ssh_private: |
     -----BEGIN RSA PRIVATE KEY-----
     # place you id_rsa private key for your nova user here
