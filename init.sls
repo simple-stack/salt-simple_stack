@@ -10,8 +10,6 @@ simple_stack_clone:
     - name: {{ pillar['git_simple_stack']['url'] }}
     - rev: {{ pillar['git_simple_stack']['rev'] }}
     - target: /srv/simple-stack
-    - runas: root
-    - submodules: true
     - force: True
 
 /srv/simple-stack/install-controller-node.sh:
