@@ -6,12 +6,10 @@ stack_needed_pkgs:
 
 simple_stack_clone:
   git.latest:
-    - order: 1
     - name: https://github.com/simple-stack/simple-stack.git
     - target: /srv/simple-stack
-    - rev: master
-    - runas: root
-    - submodules: true
+    - rev: v0.0.2
+    - force: True
 
 /srv/simple-stack/install-controller-node.sh:
   file.managed:
