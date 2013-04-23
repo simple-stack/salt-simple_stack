@@ -1,5 +1,9 @@
-/srv/simple-stack/environment.json:
+include:
+  - clone_repo
+
+environment_json:
   file.managed:
+    - name: '/srv/simple-stack/environment.json'
     - source: salt://simple_stack/envs/environment.jinja
     - user: root
     - group: root
