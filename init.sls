@@ -1,7 +1,6 @@
-#- rev: {{ pillar['git_simple_stack']['rev'] }}
 include:
-  - clone_repo
-  - environment
+  - simple_stack.clone_repo
+  - simple_stack.environment
 
 stack_needed_pkgs:
   pkg.installed:

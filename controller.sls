@@ -1,7 +1,7 @@
 include:
-  - clone_repo
+  - simple_stack.clone_repo
   - simple_stack
-  - environment
+  - simple_stack.environment
 
 install_controller_node_sh:
   cmd.run:

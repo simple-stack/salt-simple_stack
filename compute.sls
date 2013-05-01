@@ -1,7 +1,7 @@
 include:
-  - clone_repo
   - simple_stack
-  - environment
+  - simple_stack.clone_repo
+  - simple_stack.environment
 
 install_compute_node_sh:
   cmd.run:
@@ -15,4 +15,4 @@ install_compute_node_sh:
       - file: environment_json
       - file: install_compute_node_upload
       - git: simple_stack_clone
-
+      - pkg: git

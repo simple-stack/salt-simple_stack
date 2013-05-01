@@ -1,13 +1,17 @@
 nova:
   group.present:
+    - name: nova
     - system: True
   user.present:
-    - system: True
-    - fullname: nova
-    - home: /var/lib/nova
+    - fullname: Nova OpenStack User
     - shell: /bin/bash
+    - home: /var/lib/nova
+    - system: True
+    - gid_from_name: True
     - require:
       - group: nova
+
+nova_ssh_private_key:
   file.managed:
     - name: /var/lib/nova/.ssh/id_rsa
     - source: salt://simple_stack/templates/id_rsa.jinja
@@ -17,6 +21,7 @@ nova:
     - group: nova
     - require:
         - user: nova
+        - group: nova
 
 nova_ssh_authorized_keys:
   file.managed:
@@ -28,6 +33,7 @@ nova_ssh_authorized_keys:
     - group: nova
     - require:
         - user: nova
+        - group: nova
 
 nova_ssh_fix_perm:
   file.directory:
@@ -37,6 +43,17 @@ nova_ssh_fix_perm:
     - group: nova
     - require:
       - user: nova
+      - group: nova
+
+nova_run_openstack:
+  file.directory:
+    - name: /var/run/openstack
+    - mode: 700
+    - user: nova
+    - group: nova
+    - require:
+      - user: nova
+      - group: nova
 
 nova_ssh_config:
   file.managed:
@@ -48,3 +65,4 @@ nova_ssh_config:
     - group: nova
     - require:
       - user: nova
+      - group: nova

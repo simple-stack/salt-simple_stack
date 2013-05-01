@@ -1,6 +1,3 @@
-include:
-  - clone_repo
-
 environment_json:
   file.managed:
     - name: '/srv/simple-stack/environment.json'
@@ -10,6 +7,13 @@ environment_json:
     - mode: 644
     - template: jinja
     - defaults:
+        keystone_release: {{ pillar['simple_stack']['keystone_release'] }}
+        nova_release: {{ pillar['simple_stack']['nova_release'] }}
+        glance_release: {{ pillar['simple_stack']['glance_release'] }}
+        cinder_release: {{ pillar['simple_stack']['cinder_release'] }}
+        quantum_release:  {{ pillar['simple_stack']['quantum_release'] }}
+        horizon_release:  {{ pillar['simple_stack']['horizon_release'] }}
+        tempest_release:  {{ pillar['simple_stack']['tempest_release'] }}
         admin_token: {{ pillar['simple_stack']['admin_token'] }}
         service_password: {{ pillar['simple_stack']['service_password'] }}
         admin_password: {{ pillar['simple_stack']['admin_password'] }}
@@ -26,11 +30,10 @@ environment_json:
         glance_host: {{ pillar['simple_stack']['glance_host'] }}
         nova_host: {{ pillar['simple_stack']['nova_host'] }}
         nova_libirt_type: {{ pillar['simple_stack']['nova_libvirt_type'] }}
+        nova_compute_driver: {{ pillar['simple_stack']['nova_compute_driver'] }}
         nova_networking_floating: {{ pillar['simple_stack']['nova_network_floating'] }}
         nova_networking_private: {{ pillar['simple_stack']['nova_network_private'] }}
         nova_networking_public_interface: {{ pillar['simple_stack']['nova_network_public_interface'] }}
         nova_network_flat_interface: {{ pillar['simple_stack']['nova_network_flat_interface'] }}
         nova_networking_my_ip: {{ pillar['simple_stack']['nova_network_my_ip'] }}
         quantum_host: {{ pillar['simple_stack']['quantum_host'] }}
-    - require:
-      - git: simple_stack_clone
