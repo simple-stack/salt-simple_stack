@@ -1,11 +1,29 @@
-/srv/simple-stack/install-controller-node.sh /srv/simple-stack/environment.json | tee /tmp/install-openstack.log:
+include:
+  - simple_stack
+  - simple_stack.clone_repo
+  - simple_stack.environment
+
+install_controller_node_upload:
+  file.managed:
+    - name: /srv/simple-stack/install-controller-node.sh
+    - source: salt://simple_stack/bin/install-controller-node.sh
+    - user: root
+    - group: root
+    - mode: 755
+    - require:
+      - pkg: stack_needed_pkgs
+      - git: simple_stack_clone
+
+install_controller_node_sh:
   cmd.run:
+    - name: '/srv/simple-stack/install-controller-node.sh /srv/simple-stack/environment.json | tee /tmp/install-openstack.log'
     - onlyif: test -f /srv/simple-stack/environment.json
     - cwd: /srv/simple-stack
     - unless: test -d /opt/stack/nova
     - user: root
     - shell: /bin/bash
     - require:
-      - file: /srv/simple-stack/environment.json
-      - file: /srv/simple-stack/install-controller-node.sh
       - git: simple_stack_clone
+      - file: environment_json
+      - file: install_controller_node_upload
+
