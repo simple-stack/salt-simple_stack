@@ -6,6 +6,11 @@ git_simple_stack:
   rev: master
 
 simple_stack:
+  nova_release: stable/grizzly
+  horizon_release: stable/grizzly
+  glance_release: stable/grizzly
+  keyston_release: stable/grizzly
+  cinder_release: stable/grizzly
   admin_token: yourtoken12345
   service_password: barfoo 
   admin_password: secrete 
@@ -25,11 +30,12 @@ simple_stack:
   nova_network_floating: 203.0.213.64/26 # Public range of IP's VM's can use
   nova_network_private: 10.9.0.0/24 # Private IP range VM's get
   nova_network_public_interface: em3 
+  nova_network_private_interface: vlan100
   nova_network_flat_interface: vlan200
-  nova_network_my_ip: 203.0.213.2 # Your Public IP your real server
+  nova_network_my_ip: "place_holder" # scripted in
   cinder_host: 127.0.0.1
   quantum_host: 127.0.0.1  # Currently not using quantum btw
-  nova_ssh_no_host_check: 10.8.0.* , compute*
+  nova_ssh_no_host_check: 10.8.0.* # Pivate mgmt network
   nova_ssh_private: |
     -----BEGIN RSA PRIVATE KEY-----
     # place you id_rsa private key for your nova user here

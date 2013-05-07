@@ -6,28 +6,29 @@
 # You must pass the full path to the environments.json for this
 # to work right.
 #
-KEYSTONE="keystone"
-NOVA=$(ls -1 /etc/init/nova-* | sed 's#/etc/init/##' | sed 's/\.conf//g')
-GLANCE=$(ls -1 /etc/init/glance-* | sed 's#/etc/init/##' | sed 's/\.conf//g')
-CINDER=$(ls -1 /etc/init/cinder-* | sed 's#/etc/init/##' | sed 's/\.conf//g')
-
-function stop_services {
-    set +eux
-    local ITEMS=$@
-    for i in ${ITEMS} ; do
-        echo "Stopping: $i"
-        sudo service ${i} stop
-        sleep 1
-    done
-    set -eux
-}
+#KEYSTONE="keystone"
+#NOVA="nova-api nova-cert nova-conductor nova-consoleauth nova-network nova-rpc-zmq-receiver nova-scheduler"
+#GLANCE="glance-api glance-reg"
+#CINDER="cinder-api cinder-scheduler cinder-volume" 
+#
+#function stop_services {
+#    set +eux
+#    local ITEMS=$@
+#    for i in ${ITEMS} ; do
+#        echo "Stopping: $i"
+#        sudo service ${i} stop
+#        sleep 1
+#    done
+#    set -eux
+#}
+#
+#
+#stop_services ${NOVA}
+#stop_services ${GLANCE}
+#stop_services ${CINDER}
+#stop_services ${KEYSTONE}
 
 set -exu
-
-stop_services ${NOVA}
-stop_services ${GLANCE}
-stop_services ${CINDER}
-stop_services ${KEYSTONE}
 
 cd /srv/simple-stack/bin/
 /srv/simple-stack/bin/install-controller ${1}
