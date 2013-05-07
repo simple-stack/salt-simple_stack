@@ -33,7 +33,8 @@ environment_json:
         nova_compute_driver: {{ pillar['simple_stack']['nova_compute_driver'] }}
         nova_networking_floating: {{ pillar['simple_stack']['nova_network_floating'] }}
         nova_networking_private: {{ pillar['simple_stack']['nova_network_private'] }}
+        nova_networking_private_interface: {{ pillar['simple_stack']['nova_network_private_interface'] }}
         nova_networking_public_interface: {{ pillar['simple_stack']['nova_network_public_interface'] }}
         nova_network_flat_interface: {{ pillar['simple_stack']['nova_network_flat_interface'] }}
-        nova_networking_my_ip: {{ pillar['simple_stack']['nova_network_my_ip'] }}
+        nova_network_my_ip: {{ pillar['simple_stack']['nova_network_my_ip'] }}
         quantum_host: {{ pillar['simple_stack']['quantum_host'] }}
